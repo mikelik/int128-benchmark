@@ -13,9 +13,10 @@ Google Benchmark should be installed according to https://github.com/google/benc
 
 ```
 git clone https://github.com/mikelik/int128-benchmark.git
+cd int128-benchmark
 git submodule update --init  --recursive
-mkdir int128-benchmark/build
-cd int128-benchmark/build
+mkdir build
+cd build
 cmake ..
 make
 taskset -c 0 ./int128-benchmark
