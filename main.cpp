@@ -46,18 +46,6 @@ static void add_multiply_type(benchmark::State& state) {
    BENCHMARK( add_multiply_type<TYPE> );               \
    /* BENCHMARK_TYPE */
 
-/*
-BENCHMARK_TYPE( absl::uint128 );
-BENCHMARK_TYPE( unsigned __int128 );
-BENCHMARK_TYPE( intx::uint128 );
-BENCHMARK_TYPE( boost::multiprecision::uint128_t );
-#if __llvm__
-  BENCHMARK_TYPE( _BitInt );
-#endif
-*/
-
-
-
 #if __llvm__
 # define BENCHMARK_BIGINT(FUNC) BENCHMARK( FUNC< _BitInt(128) > )
 #else
