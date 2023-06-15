@@ -47,7 +47,7 @@ static void add_multiply_type(benchmark::State& state) {
    /* BENCHMARK_TYPE */
 
 #if __llvm__
-# define BENCHMARK_BIGINT(FUNC) BENCHMARK( FUNC< _BitInt(128) > )
+# define BENCHMARK_BIGINT(FUNC) BENCHMARK( FUNC< unsigned _BitInt(128) > )
 #else
 # define BENCHMARK_BIGINT(FUNC)
 #endif

@@ -2,7 +2,7 @@
 
 In this repository you can run benchmark for following uint128 implementations:
 - GCC builtin unsigned __int128
-- LLVM builtin _BitInt(128)
+- LLVM builtin unsigned _BitInt(128)
 - chfast intx::uint128
 - abseil absl::uint128
 - boost::multiprecision::uint128
@@ -70,8 +70,8 @@ add_multiply_type< unsigned __int128>                       1.68 ns         1.68
 # Example output for LLVM
 
 ```
-$ taskset -c 0 ./int128-benchmark 
-2023-06-15T09:43:19+02:00
+$  taskset -c 0 ./int128-benchmark 
+2023-06-15T10:12:03+02:00
 Running ./int128-benchmark
 Run on (20 X 4600 MHz CPU s)
 CPU Caches:
@@ -79,32 +79,31 @@ CPU Caches:
   L1 Instruction 32 KiB (x10)
   L2 Unified 1280 KiB (x10)
   L3 Unified 24576 KiB (x1)
-Load Average: 4.23, 1.44, 0.76
+Load Average: 1.98, 1.11, 0.92
 ***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
 ------------------------------------------------------------------------------------------------
 Benchmark                                                      Time             CPU   Iterations
 ------------------------------------------------------------------------------------------------
-create_type< boost::multiprecision::uint128_t >             4.17 ns         4.17 ns    168308870
-create_type< intx::uint128 >                                1.97 ns         1.97 ns    355572831
-create_type< absl::uint128 >                                1.53 ns         1.53 ns    456689371
-create_type< unsigned __int128>                             1.53 ns         1.53 ns    456332937
-create_type< _BitInt(128) >                                 1.53 ns         1.53 ns    456871724
-add_type< boost::multiprecision::uint128_t >                11.3 ns         11.3 ns     61984518
-add_type< intx::uint128 >                                   20.0 ns         20.0 ns     34847497
-add_type< absl::uint128 >                                   7.99 ns         7.99 ns     87621849
-add_type< unsigned __int128>                                1.53 ns         1.53 ns    456825360
-add_type< _BitInt(128) >                                    1.53 ns         1.53 ns    457364423
-multiply_type< boost::multiprecision::uint128_t >           11.5 ns         11.5 ns     60967866
-multiply_type< intx::uint128 >                              14.1 ns         14.1 ns     49644945
-multiply_type< absl::uint128 >                              8.08 ns         8.08 ns     86424209
-multiply_type< unsigned __int128>                           1.54 ns         1.54 ns    456751520
-multiply_type< _BitInt(128) >                               1.53 ns         1.53 ns    457306012
-add_multiply_type< boost::multiprecision::uint128_t >       27.1 ns         27.1 ns     25883643
-add_multiply_type< intx::uint128 >                          33.0 ns         33.0 ns     21215771
-add_multiply_type< absl::uint128 >                          12.8 ns         12.8 ns     54193273
-add_multiply_type< unsigned __int128>                       1.75 ns         1.75 ns    394886961
-add_multiply_type< _BitInt(128) >                           1.97 ns         1.97 ns    355335862
-
+create_type< boost::multiprecision::uint128_t >             4.39 ns         4.39 ns    159309462
+create_type< intx::uint128 >                                1.98 ns         1.98 ns    351136279
+create_type< absl::uint128 >                                1.53 ns         1.53 ns    456044553
+create_type< unsigned __int128>                             1.54 ns         1.54 ns    455192807
+create_type< unsigned _BitInt(128) >                        1.53 ns         1.53 ns    453769212
+add_type< boost::multiprecision::uint128_t >                11.8 ns         11.8 ns     59040198
+add_type< intx::uint128 >                                   19.7 ns         19.7 ns     35467171
+add_type< absl::uint128 >                                   8.06 ns         8.06 ns     86876982
+add_type< unsigned __int128>                                1.53 ns         1.53 ns    455288456
+add_type< unsigned _BitInt(128) >                           1.53 ns         1.53 ns    456311686
+multiply_type< boost::multiprecision::uint128_t >           12.1 ns         12.1 ns     58205575
+multiply_type< intx::uint128 >                              14.6 ns         14.6 ns     47376566
+multiply_type< absl::uint128 >                              8.20 ns         8.20 ns     85523932
+multiply_type< unsigned __int128>                           1.53 ns         1.53 ns    451265094
+multiply_type< unsigned _BitInt(128) >                      1.54 ns         1.54 ns    455370936
+add_multiply_type< boost::multiprecision::uint128_t >       28.3 ns         28.3 ns     24796175
+add_multiply_type< intx::uint128 >                          33.1 ns         33.1 ns     21088193
+add_multiply_type< absl::uint128 >                          12.9 ns         12.9 ns     53713186
+add_multiply_type< unsigned __int128>                       1.76 ns         1.76 ns    398268003
+add_multiply_type< unsigned _BitInt(128) >                  1.75 ns         1.75 ns    399085583
 ```
 
 # Results
