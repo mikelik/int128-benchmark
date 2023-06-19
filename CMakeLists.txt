@@ -24,3 +24,13 @@ target_sources(
   PRIVATE
     main.cpp
   )
+
+add_executable(hex-benchmark "")
+target_link_libraries(hex-benchmark benchmark::benchmark)
+
+# and its sources
+target_sources(
+  hex-benchmark
+  PRIVATE
+    hex.cpp
+  )
