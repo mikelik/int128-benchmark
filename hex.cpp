@@ -70,6 +70,15 @@ std::string to_string3(WideInt value) {
     return hexString;
 }
 
+template <typename I>
+std::string to_string4(I w, size_t hex_len = sizeof(I)<<1) {
+    static const char* digits = "0123456789ABCDEF";
+    std::string rc(hex_len,'0');
+    for (size_t i=0, j=(hex_len-1)*4 ; i<hex_len; ++i,j-=4)
+        rc[i] = digits[(w>>j) & 0x0f];
+    return rc;
+}
+
 template <typename WideInt>
 WideInt to_int(const std::string& hexString) {
     if (hexString.empty())
@@ -174,6 +183,13 @@ static void to_string3(benchmark::State& state) {
       to_string3(i);
 }
 
+static void to_string4(benchmark::State& state) {
+   int128_t i = 12345678901234567890ULL;
+   
+   for (auto _ : state)
+      to_string4(i);
+}
+
 static void to_int(benchmark::State& state) {
    std::string s = "AB54A98CEB1F0ADF";
    
@@ -198,6 +214,7 @@ static void to_int3(benchmark::State& state) {
 BENCHMARK(to_string);
 BENCHMARK(to_string2);
 BENCHMARK(to_string3);
+BENCHMARK(to_string4);
 BENCHMARK(to_int);
 BENCHMARK(to_int2);
 BENCHMARK(to_int3);
