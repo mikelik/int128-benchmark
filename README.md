@@ -105,6 +105,32 @@ add_multiply_type< absl::uint128 >                          12.9 ns         12.9
 add_multiply_type< unsigned __int128>                       1.76 ns         1.76 ns    398268003
 add_multiply_type< unsigned _BitInt(128) >                  1.75 ns         1.75 ns    399085583
 ```
+# Example output for LLVM hex conversion
+```
+$ ./hex-benchmark 
+2023-06-21T15:41:31+02:00
+Running ./hex-benchmark
+Run on (20 X 4600 MHz CPU s)
+CPU Caches:
+  L1 Data 48 KiB (x10)
+  L1 Instruction 32 KiB (x10)
+  L2 Unified 1280 KiB (x10)
+  L3 Unified 24576 KiB (x1)
+Load Average: 0.55, 0.83, 0.89
+***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
+-----------------------------------------------------
+Benchmark           Time             CPU   Iterations
+-----------------------------------------------------
+to_string        1680 ns         1680 ns       408021
+to_string2        173 ns          173 ns      4066233
+to_string3        166 ns          166 ns      4151766
+to_string4        145 ns          145 ns      4818316
+to_string5       77.3 ns         77.3 ns      8924112
+to_int            116 ns          116 ns      5993281
+to_int2          66.6 ns         66.6 ns     10023861
+to_int3           110 ns          110 ns      6372773
+to_int4           105 ns          105 ns      6885775
+```
 
 # Results
 
